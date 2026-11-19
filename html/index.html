@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User form</title>
+</head>
+<body>
+  <h1>User form</h1>
+
+  <form id="userForm" action="page2.html" method="get" target="_blank">
+    <p>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </p>
+
+    <fieldset>
+      <legend>Are you above 18?</legend>
+      <label><input type="radio" name="above18" value="Yes"> Yes</label>
+      <label><input type="radio" name="above18" value="No"> No</label>
+    </fieldset>
+
+    <p>
+      <label>
+        <input type="checkbox" name="notRobot" value="Yes">
+        Not a robot
+      </label>
+    </p>
+
+    <p>
+      <label for="interest">Interest:</label>
+      <select id="interest" name="interest">
+        <option value="games">Games</option>
+        <option value="sport">Sport</option>
+        <option value="movie">Movie</option>
+      </select>
+    </p>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", (event) => {
+      if (!document.querySelector('input[name="above18"]:checked')) {
+        event.preventDefault();
+        alert("Please select Yes or No for the above 18 question.");
+      }
+    });
+  </script>
+</body>
+</html>

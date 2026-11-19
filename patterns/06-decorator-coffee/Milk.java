@@ -1,0 +1,1 @@
+public class Milk extends CoffeeDecorator { public Milk(Coffee coffee) { super(coffee); } public String description() { return coffee.description() + ", milk"; } public double cost() { return coffee.cost() + 5.0; } }

@@ -1,0 +1,11 @@
+# .NET
+**/bin/
+**/obj/
+
+# Maven
+**/target/
+
+# Node.js and Playwright
+**/node_modules/
+**/playwright-report/
+**/test-results/

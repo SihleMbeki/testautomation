@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form results</title>
+</head>
+<body>
+  <h1>Form results</h1>
+  <dl id="results"></dl>
+  <p><a href="index.html">Back to form</a></p>
+
+  <script>
+    const parameters = new URLSearchParams(window.location.search);
+    const results = document.getElementById("results");
+    const fields = [
+      ["Name", "name"],
+      ["Above 18", "above18"],
+      ["Not a robot", "notRobot"],
+      ["Interest", "interest"]
+    ];
+
+    for (const [label, key] of fields) {
+      const term = document.createElement("dt");
+      const value = document.createElement("dd");
+      term.textContent = label;
+      value.textContent = parameters.get(key) || "Not selected";
+      results.append(term, value);
+    }
+  </script>
+</body>
+</html>
