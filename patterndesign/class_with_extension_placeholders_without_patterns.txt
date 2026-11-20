@@ -1,0 +1,18 @@
+Class ClassWithExtensionPlaceholders{
+    private field;
+    public field2;
+    private changingpart;
+    private object instace;
+
+    await method(){
+
+    }
+
+    asyc method(){
+
+    }
+
+    public name(){
+
+    }
+}

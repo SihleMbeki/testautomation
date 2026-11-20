@@ -23,7 +23,7 @@ For only two simple states, a small conditional may be sufficient. State becomes
 - Model a device's readiness state before sending input.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

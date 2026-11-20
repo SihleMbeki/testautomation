@@ -12,7 +12,7 @@ A separate "are shirts left?" check and increment can race: many buyers may all 
 ## How the pattern solves the catch
 - The single-thread demonstration shows buyers 999, 1,000, 1,001, and 1,002 and their package decisions.
 - Race numbers come from the thread-safe Singleton's atomic sequence.
-- The unsafe counter starts at 999 and uses a barrier so all 20 test threads read the same boundary before updating; its over-give is repeatable.
+- The unsafe counter starts at 999 and uses a barrier so all 20 test threads read the same boundary before updating; its total of 1,019 shirts is repeatable.
 - The safe counter uses compare-and-set on an `AtomicInteger`; 1,100 simultaneous buyers receive exactly 1,000 shirts.
 
 ## Alternatives
@@ -40,7 +40,7 @@ Buyer 1001: race number 1001, free shirt no
 Buyer 1002: race number 1002, free shirt no
 ```
 
-It then prints `Unsafe concurrent buyers at 1,000 boundary: 20 shirts (expected 1)` and `Safe concurrent buyers: 1000 shirts (expected 1000)`. `Naive` prints `Naive check: a shirt is available` and `Naive local sold count: 1000`.
+It then prints `Unsafe total shirts: 1019 (over the 1,000 limit; includes 999 earlier buyers)` and `Safe concurrent buyers: 1000 shirts (expected 1000)`. `Naive` prints `Naive check: a shirt is available` and `Naive local sold count: 1000`.
 
 ## Try this next
 Return an explicit ticket package type from the factory and add a second perk without changing race-number allocation.

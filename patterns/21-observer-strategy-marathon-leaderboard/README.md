@@ -23,7 +23,7 @@ An event bus could distribute updates when the application needs broader, asynch
 - Swap ranking strategies to test category-specific sorting independently.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

@@ -1,0 +1,16 @@
+Class BasicClass{
+    private field;
+    public field2;
+
+    await method(){
+
+    }
+
+    asyc method(){
+
+    }
+
+    public name(){
+
+    }
+}

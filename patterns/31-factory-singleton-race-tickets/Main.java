@@ -10,9 +10,9 @@ public class Main {
             }
         }
 
-        int unsafeShirts = RaceDemo.unsafeShirtCount(20);
-        System.out.println("Unsafe concurrent buyers at 1,000 boundary: "
-                + unsafeShirts + " shirts (expected 1)");
+        int unsafeShirts = RaceDemo.unsafeTotalShirtCount(20);
+        System.out.println("Unsafe total shirts: " + unsafeShirts
+                + " (over the 1,000 limit; includes 999 earlier buyers)");
         int safeShirts = RaceDemo.safeShirtCount(1100);
         System.out.println("Safe concurrent buyers: " + safeShirts
                 + " shirts (expected 1000)");

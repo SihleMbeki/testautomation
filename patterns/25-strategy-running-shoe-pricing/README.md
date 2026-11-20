@@ -23,15 +23,24 @@ An enum with a discount rate can suit a fixed, very small set of rules. Strategy
 - Select a pricing strategy in a test fixture to cover condition-specific checkout behavior.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
-```text
+```bash
 javac -d out *.java
 java -cp out Main
 java -cp out Naive
 ```
 
-Both programs print six deterministic lines: Swift and Pace at full price, demo prices of R 850.00 and R 1,020.00, then second-hand prices of R 600.00 and R 720.00.
+Both programs print:
+
+```text
+Swift — Full price: R 1,000.00
+Pace — Full price: R 1,200.00
+Swift — Demo (15% off): R 850.00
+Pace — Demo (15% off): R 1,020.00
+Swift — Second hand (40% off): R 600.00
+Pace — Second hand (40% off): R 720.00
+```
 
 ## Try this next
 Add a clearance strategy and test that each model keeps its listed price while applying the new rule.

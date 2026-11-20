@@ -7,13 +7,13 @@ A form displays native Male and Female options and options from an external prov
 Without a common format, display code must understand each source's representation and repeat the work of combining those sources.
 
 ## Pattern(s)
-**Adapter** translates the external provider's codes into the application's `GenderOption` format: `ExternalGenderProvider` is the adaptee and `ExternalGenderAdapter` is its adapter. `NativeGenderSource` supplies the native Male and Female options. **Facade** provides one simple access point: `GenderFacade.getAllGenders()` combines both sources; `GenderDisplay.displayGender()` displays all four options in the same way. Here `X` is shown as Neutral and `Y` as Prefer not to say.
+**Adapter** translates the external provider's codes into the application's `GenderOption` format: `ExternalGenderProvider` is the adaptee and `ExternalGenderAdapter` is its adapter. `NativeGenderSource` supplies the native Male and Female options. **Facade** provides one simple access point: `GenderFacade.getAllGenders()` combines both sources; `GenderDisplay.displayGender()` displays all four options in the same way. Since the external API specifies only codes, `X` and `Y` are displayed as `Option X` and `Option Y` without assigning them additional meanings.
 
 ## How the pattern solves the catch
 - Both sources supply the same `GenderOption` type.
 - The adapter maps `X` and `Y` without modifying the external provider.
 - The facade combines native and adapted options in one `getAllGenders()` call.
-- One `displayGender()` method renders every option, including the neutral choice.
+- One `displayGender()` method renders every option using a consistent display format.
 
 ## Alternatives
 If only one source is ever needed, call its adapter directly and omit the facade. The facade is useful here because the client needs a unified list from multiple sources.
@@ -36,8 +36,8 @@ java -cp out Naive
 ```text
 Gender option: Male
 Gender option: Female
-Gender option: Neutral
-Gender option: Prefer not to say
+Gender option: Option X
+Gender option: Option Y
 ```
 
 `Naive` prints `External gender codes: [X, Y]`.

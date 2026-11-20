@@ -1,8 +1,8 @@
 public class Naive {
     public static void main(String[] args) {
-        ArcadeBlaster weapon = new ArcadeBlaster();
-        weapon.aim();
-        weapon.fire();
-        // Adding every attachment here grows conditionals and combinations.
+        Rifle rifle = new Rifle();
+        rifle.aim();
+        rifle.fire();
+        // Separate RifleWithScope and RifleWithScopeAndSilencer classes multiply combinations.
     }
 }

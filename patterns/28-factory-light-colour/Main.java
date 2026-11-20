@@ -6,6 +6,5 @@ public class Main {
         }
         LightFactory.create("red").turnOn();
         LightFactory.create("green").turnOn();
-        LightFactory.create("orange").turnOn();
     }
 }

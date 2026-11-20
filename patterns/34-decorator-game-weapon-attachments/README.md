@@ -1,25 +1,26 @@
 # Decorator - Game Weapon Attachments
 
 ## Problem
-A friendly arcade blaster can be customized with optional visual and sound effects. Players should be able to combine attachments without creating a separate class for every possible loadout.
+A friendly arcade game lets a player attach or remove a scope from a rifle while playing. Attachments can also be stacked, such as a silencer around a scoped rifle. The examples use fictional arcade effects rather than real-world weapon details.
 
 ## The catch
-Putting all attachment combinations into the base weapon or a growing conditional creates many combinations and couples the base behavior to every add-on.
+Creating classes such as `RifleWithScope` and `PistolWithScopeAndSilencer` for every combination makes the class count grow quickly.
 
 ## Pattern(s)
-**Decorator** wraps an object with another object that keeps the same interface and adds behavior. `GameWeapon` is the component interface; `ArcadeBlaster` is the concrete component; `WeaponAttachment` is the abstract decorator; `GlowCharm`, `ConfettiTrail`, and `SoundBadge` are concrete decorators. The examples add only friendly arcade effects and no real-world weapon details.
+**Decorator** wraps a `Weapon` with another `Weapon` that adds behavior while keeping the same interface. `Weapon` is the component, `Rifle` and `Pistol` are concrete components, `WeaponDecorator` is the abstract decorator, and `Scope` and `Silencer` are concrete decorators. `Scope` changes aiming and passes firing through; `Silencer` changes the firing message and passes aiming through.
 
 ## How the pattern solves the catch
-- Each attachment wraps any existing `GameWeapon` and delegates the operations it does not change.
-- Add-ons can be combined in different orders at runtime.
-- The base blaster stays independent of optional visual and sound effects.
+- Each decorator wraps any `Weapon`, so it works with either concrete weapon.
+- The scope adds its zoom message before delegating the aim action.
+- The silencer changes the fire message without changing the wrapped weapon.
+- Reassigning the base rifle removes the scope at runtime; wrappers can also be stacked.
 
 ## Alternatives
-Use **Strategy** when one behavior should be selected instead of composed with others. Decorator is useful when several independent add-ons need to stack.
+Use **Builder** if attachments are selected once during setup and do not need to be added or removed later. Decorator fits runtime composition of independent features.
 
 ## Where you'll meet it in test automation
-- A test fixture can wrap a base client with logging, retries, or metrics without changing its interface.
-- UI test setups can compose optional capabilities around a shared page or driver abstraction.
+- Wrap an API client with logging or metrics while preserving its client interface.
+- Compose optional test hooks around a reusable fixture or driver abstraction.
 
 ## How to run
 Run these commands from this folder:
@@ -33,15 +34,27 @@ java -cp out Naive
 `Main` prints:
 
 ```text
-Loadout: Arcade blaster + sound badge + confetti trail + glow charm
-Glow charm: target sparkles
-Arcade blaster: aiming at the target
-Arcade blaster: friendly ping!
-Sound badge: cheerful arcade chime!
-Confetti trail: colorful confetti!
+Base rifle:
+Rifle: aiming at the arcade target.
+Rifle fires: arcade target tagged!
+
+Scope attached:
+Scope: aiming with 4x zoom.
+Rifle: aiming at the arcade target.
+Rifle fires: arcade target tagged!
+
+Scope removed:
+Rifle: aiming at the arcade target.
+Rifle fires: arcade target tagged!
+
+Silencer and scope attached:
+Scope: aiming with 4x zoom.
+Rifle: aiming at the arcade target.
+Silencer: quiet arcade sound.
+Rifle fires: arcade target tagged!
 ```
 
-`Naive` prints `Arcade blaster: aiming at the target` and `Arcade blaster: friendly ping!`.
+`Naive` prints `Rifle: aiming at the arcade target.` and `Rifle fires: arcade target tagged!`.
 
 ## Try this next
-Add a harmless color-shift attachment that decorates the loadout description and one action.
+Add a harmless second scope type and wrap the pistol with it without creating a combination-specific weapon class.

@@ -34,7 +34,7 @@ java -cp out Naive
 `Main` prints:
 
 ```text
-KZN  to KwaZulu-Natal: R400.00
+KZN to KwaZulu-Natal: R400.00
 KZN to Gauteng: R440.00
 Cannot quote: Unknown province: Atlantis
 ```

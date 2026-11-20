@@ -23,7 +23,7 @@ Template Method alone could use subclasses for each fulfilment type, but Strateg
 - A payment or fulfilment test can swap a strategy without changing the order workflow.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

@@ -23,7 +23,7 @@ Abstract Factory is a fit only when the parts form compatible families that must
 - Use a director for repeatable browser, device, or environment presets.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

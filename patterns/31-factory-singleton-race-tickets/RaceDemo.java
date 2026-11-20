@@ -2,7 +2,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class RaceDemo {
-    public static int unsafeShirtCount(int racers) throws InterruptedException {
+    public static int unsafeTotalShirtCount(int racers) throws InterruptedException {
         final TicketFactory factory = new TicketFactory(
                 new UnsafeEarlyBirdCounter(999, racers));
         final CountDownLatch ready = new CountDownLatch(racers);
@@ -26,7 +26,7 @@ public class RaceDemo {
         ready.await();
         start.countDown();
         for (Thread thread : threads) thread.join();
-        return shirts.get();
+        return 999 + shirts.get();
     }
 
     public static int safeShirtCount(int buyers) throws InterruptedException {

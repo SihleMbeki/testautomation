@@ -22,7 +22,7 @@ Template Method could model different stopping workflows for manual and automati
 - A facade can expose a clear `stopAndVerify()` operation over lower-level controls.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

@@ -23,7 +23,7 @@ A Mediator, such as a central fire panel, can coordinate more complex building-w
 - Use observers to capture emitted events while testing sensors in isolation.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

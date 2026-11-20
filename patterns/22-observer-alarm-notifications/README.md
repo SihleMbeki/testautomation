@@ -23,7 +23,7 @@ An event bus or message broker can be useful when notifications cross process bo
 - Add a test-only observer to record alarm events without changing the sensor.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java

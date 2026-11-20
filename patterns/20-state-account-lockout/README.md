@@ -23,7 +23,7 @@ A straightforward boolean and counter can work for this small example, but state
 - Verify that retry actions are unavailable after a lockout transition.
 
 ## How to run
-From this directory, compile and run:
+These examples target Java 17 and use only the standard library. From this directory, compile and run:
 
 ```text
 javac -d out *.java
